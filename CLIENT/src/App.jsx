@@ -1,15 +1,22 @@
-import { RouterProvider } from "react-router-dom";
-import router from "./router";
-import { AuthProvider } from "./contexts/AuthContext";
+import React from 'react';
+import LoginForm from './components/LoginForm';
+import OnlineUsers from './components/OnlineUsers';
+import Sidebar from './components/Sidebar';
+import AuthProvider from './context/AuthContext';
+import ThemeProvider from './context/ThemeContext';
 
-function App() {
+const App = () => {
   return (
-    <>
-      <AuthProvider>
-        <RouterProvider router={router} />
-      </AuthProvider>
-    </>
+    <AuthProvider>
+      <ThemeProvider>
+        <div className="app">
+          <Sidebar />
+          <LoginForm />
+          <OnlineUsers />
+        </div>
+      </ThemeProvider>
+    </AuthProvider>
   );
-}
+};
 
 export default App;
