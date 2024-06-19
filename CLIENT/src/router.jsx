@@ -1,14 +1,14 @@
 import {createBrowserRouter  ,Outlet , redirect} from "react-router-dom"
-
-import Navbar from "./components/Navbar"
-import HomePage from "./pages/HomePage"
+import Home from "./pages/Home"
+import Game from "./pages/Game"
 import Register from "./pages/Register"
-import LoginPage from "./pages/LoginPage"
+import Login from "./pages/Login"
+import Navbar from "./components/Navbar"
 
 
 const CekAccessToken = () =>{
     if (!localStorage.access_token){
-        return redirect('/LoginPage')
+        return redirect('/login')
     }
     return null
 }
@@ -26,11 +26,11 @@ const router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <HomePage/>
+                element: <Home/>
             },
             {
-                path: '/GamePage',
-                element: <GamePage/>
+                path: '/game',
+                element: <Game/>
             },
             {
 
@@ -40,12 +40,12 @@ const router = createBrowserRouter([
     },
     
     {
-        path: '/Register',
+        path: '/register',
         element: <Register/>
     },
     {
-        path : '/LoginPage',
-        element: <LoginPage/>
+        path : '/login',
+        element: <Login/>
     }
     
     
