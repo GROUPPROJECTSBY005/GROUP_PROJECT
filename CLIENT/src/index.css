@@ -8,6 +8,35 @@ a {
   text-decoration: none;
 }
 
+.height-lobby {
+  height: 65vh;
+}
+
+.list-player {
+  max-height: 45vh;
+  overflow-y: auto;
+  scroll-behavior: smooth
+}
+
+.list-player::-webkit-scrollbar {
+  width: 10px;
+}
+
+.list-player::-webkit-scrollbar-track {
+  background: #198754; 
+  border-radius: 10px;
+}
+
+.list-player::-webkit-scrollbar-thumb {
+  background: #fff3cd; 
+  border-radius: 10px;
+}
+
+.list-player::-webkit-scrollbar-thumb:hover {
+  background: #fff; 
+}
+
+
 .lobby {
   font-family: "Press Start 2P", cursive;
 }
@@ -77,12 +106,15 @@ a {
   transform: scale(0.98);
 }
 
+.lobby .waiting,
 .lobby .btn {
   transition: transform 0.3s ease;
 }
 
+.lobby .waiting:hover,
 .lobby .btn:hover {
-  transform: scale(1.05);
+  transform: scale(1.03);
+  background-color: #eee2bc;
 }
 
 .coming-soon {

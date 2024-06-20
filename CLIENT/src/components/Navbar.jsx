@@ -12,7 +12,7 @@ export default function Navbar() {
     Swal.fire({
         icon: "success",
         title: "Success",
-        text: "Kamu telah berhasil logout",
+        text: "You have successfully logged out",
         confirmButtonColor: "#198754"
       });
     navigate("/");
@@ -25,20 +25,20 @@ export default function Navbar() {
           <Link to={"/"}>
             <span className="navbar-brand mb-0 h1 fs-3">Hacktip Games</span>
           </Link>
-          <div className="d-flex gap-2">
+          <div className="d-flex gap-3">
             {isAuthenticated ? (
               <>
-                <button className="btn btn-outline-light" onClick={handleLogout}>
+                <button className="btn fs-5 btn-outline-light" onClick={handleLogout}>
                   Logout
                 </button>
               </>
             ) : (
               <>
                 <Link to={"/register"}>
-                  <button className="btn btn-outline-light">Register</button>
+                  <button className="btn fs-5 btn-outline-light">Register</button>
                 </Link>
                 <Link to={"/login"}>
-                  <button className="btn btn-outline-light">Login</button>
+                  <button className="btn fs-5 btn-outline-light">Login</button>
                 </Link>
               </>
             )}
