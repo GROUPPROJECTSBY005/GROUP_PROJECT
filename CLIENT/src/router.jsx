@@ -5,6 +5,8 @@ import Game from "./pages/Game";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Navbar from "./components/Navbar";
+import Canvas from "./pages/CanvasGame";
+import EnterGame from "./pages/Entergame";
 
 const checkAccess = () => {
   if (!localStorage.access_token) {
@@ -65,6 +67,26 @@ const router = createBrowserRouter([
       <>
         <Navbar />
         <Game />
+      </>
+    ),
+    loader: checkAccess,
+  },
+  {
+    path: "/canvas",
+    element: (
+      <>
+        <Navbar />
+        <Canvas />
+      </>
+    ),
+    loader: checkAccess,
+  },
+  {
+    path: "/entergame",
+    element: (
+      <>
+        <Navbar />
+        <EnterGame />
       </>
     ),
     loader: checkAccess,

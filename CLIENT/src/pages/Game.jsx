@@ -1,5 +1,6 @@
 import socket from "../socketio/socket";
 import { useEffect, useState } from "react";
+import Canvas from "./CanvasGame";
 
 
 
@@ -77,6 +78,7 @@ useEffect(()=>{
                     from other players<span className="animated-ellipsis"></span>
                   </div>
                 </div>
+               
               </div>
             </div>
           </div>
