@@ -33,7 +33,7 @@ export default function Register() {
           });
           navigate("/login");
         } catch (error) {
-          console.log(error);
+          console.log(error ,'<---');
           Swal.fire({
             icon: 'error',
             title: 'Registration Failed',
