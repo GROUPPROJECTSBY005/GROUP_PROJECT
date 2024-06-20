@@ -9,6 +9,7 @@ import Canvas from "./pages/CanvasGame";
 import EnterGame from "./pages/Entergame";
 import TestAirHockey from "./pages/TestAirHockey";
 import DrawingGame from "./pages/DarwingGame";
+import TugOfWar from "./pages/TugOfWar";
 const checkAccess = () => {
   if (!localStorage.access_token) {
     Swal.fire({
@@ -78,6 +79,16 @@ const router = createBrowserRouter([
       <>
         <Navbar />
         <EnterGame />
+      </>
+    ),
+    loader: checkAccess,
+  },
+  {
+    path: "/tugofwar",
+    element: (
+      <>
+        <Navbar />
+        <TugOfWar />
       </>
     ),
     loader: checkAccess,

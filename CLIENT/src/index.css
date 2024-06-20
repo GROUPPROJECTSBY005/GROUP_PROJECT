@@ -120,3 +120,35 @@ a {
 .coming-soon {
   filter: grayscale(100%);
 }
+
+
+
+
+/* tug of war yg ini css nya */
+.tug-of-war-game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.rope {
+  width: 130%;
+  height: 10px;
+  background-color: black;
+  position: relative;
+  margin: 20px 0;
+}
+
+.marker {
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  position: absolute;
+  top: -5px;
+  transform: translateX(-50%);
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+}

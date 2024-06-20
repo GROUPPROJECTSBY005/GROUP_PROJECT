@@ -44,6 +44,10 @@ io.on("connection", (socket) => {
     socket.broadcast.emit('drawing', data);
   });
 
+  socket.on("tug", (data) => {
+    io.emit('tug', data);
+  });
+
   socket.on("disconnect", () => {
     console.log('User disconnected:', socket.id);
     delete users[socket.id];
