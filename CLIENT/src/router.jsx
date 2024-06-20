@@ -11,7 +11,8 @@ const checkAccess = () => {
     Swal.fire({
         icon: "error",
         title: "Oops...",
-        text: "Kamu harus login untuk memainkan games!",
+        text: "You must login first!",
+        confirmButtonColor: "#198754"
       });
     return redirect("/login");
   }
