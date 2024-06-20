@@ -1,4 +1,10 @@
+import socket from "../socketio/socket";
+import { useEffect, useState } from "react";
+
+
+
 export default function Game() {
+  
   const players = [
     "Player1",
     "Player2",
@@ -9,6 +15,31 @@ export default function Game() {
     "Player7",
     "Player8",
   ];
+const [player ,setPlayer] = useState([])
+
+useEffect(()=>{
+
+  socket.auth = (cb) => {
+    cb({ username: localStorage.username })
+  }
+  
+    socket.disconnect().connect()
+  
+},[])
+
+useEffect(()=>{
+  socket.on('users:online' , (user)=>{
+    console.log(user)
+    setPlayer(user)
+  })
+
+  // return (
+  //   socket.off('users:online')
+  // )
+},[])
+
+
+
   return (
     <>
       <div className="lobby">
@@ -26,9 +57,9 @@ export default function Game() {
                 </div>
                 <div className="card-body">
                   <div className="d-grid gap-2">
-                    {players.map((player, index) => (
+                    {player.map((player, index) => (
                       <button className="btn btn-light shadow" key={index}>
-                        {player}
+                        {player.username}
                       </button>
                     ))}
                   </div>
