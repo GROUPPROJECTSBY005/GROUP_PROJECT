@@ -4,8 +4,8 @@ import io from 'socket.io-client';
 const Canvas = () => {
     const canvasRef = useRef(null);
     const [socket, setSocket] = useState(null);
-    const user = useRef({ username: '', pos: { x: 0, y: 0 }, points: 0 });
-    const otherUser = useRef({ username: '', pos: { x: -64, y: -64 }, points: 0, lastTime: 0 });
+    const user = useRef({ username: 'Player', pos: { x: 0, y: 0 }, points: 0 });
+    const otherUser = useRef({ username: 'Opponent', pos: { x: -64, y: -64 }, points: 0, lastTime: 0 });
     const puck = useRef({ pos: { x: 640, y: 400 }, vel: { x: 0, y: 0 }, radius: 25, lastTime: 0 });
 
     const [userImg, setUserImg] = useState(null);
@@ -21,6 +21,11 @@ const Canvas = () => {
 
         s.on('connect', () => {
             console.log('Connected to server');
+            s.emit('join', { name: 'Player' });
+        });
+
+        s.on('joinSuccess', () => {
+            console.log('Successfully joined the game');
         });
 
         s.on('updateInfo', (data) => {
@@ -32,6 +37,15 @@ const Canvas = () => {
                 puck.current.vel = data.vel;
                 puck.current.lastTime = data.time;
             }
+        });
+
+        s.on('beginPlay', () => {
+            console.log('Game started');
+            update();
+        });
+
+        s.on('pauseGame', () => {
+            console.log('Game paused, waiting for opponent');
         });
 
         const update = () => {
@@ -60,8 +74,6 @@ const Canvas = () => {
 
             requestAnimationFrame(update);
         };
-
-        s.on('beginPlay', update);
 
         const bouncePuck = () => {
             if ((puck.current.pos.x - puck.current.radius < 0) || (puck.current.pos.x + puck.current.radius > canvas.width)) {

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Canvas from './CanvasGame';
-// import './App.css';
+import '../App.css';
 
 const EnterGame = () => {
     const [username, setUsername] = useState('');
