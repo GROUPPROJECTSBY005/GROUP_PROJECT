@@ -3,59 +3,57 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "../../src/axiosInstance/axiosInstance";
 import Swal from "sweetalert2";
+import Navbar from "../components/Navbar";
 
 export default function Register() {
-    const [registerForm, setRegisterForm] = useState({
-        username: "",
-        password: "",
+  const [registerForm, setRegisterForm] = useState({
+    username: "",
+    password: "",
+  });
+
+  const navigate = useNavigate();
+
+  const changeHandler = (el) => {
+    const { name, value } = el.target;
+
+    setRegisterForm({
+      ...registerForm,
+      [name]: value,
+    });
+  };
+
+  const submitHandler = async (el) => {
+    el.preventDefault();
+
+    try {
+      await axios.post("/register", registerForm);
+      Swal.fire({
+        icon: "success",
+        title: "Registration Successful",
+        text: "You can login now!.",
+        confirmButtonColor: "#198754",
       });
-    
-      const navigate = useNavigate();
-    
-      const changeHandler = (el) => {
-        const { name, value } = el.target;
-    
-        setRegisterForm({
-          ...registerForm,
-          [name]: value,
-        });
-      };
-    
-      const submitHandler = async (el) => {
-        el.preventDefault();
-    
-        try {
-          await axios.post("/register", registerForm);
-          Swal.fire({
-            icon: 'success',
-            title: 'Registration Successful',
-            text: 'You can login now!.'
-          });
-          navigate("/login");
-        } catch (error) {
-          console.log(error ,'<---');
-          Swal.fire({
-            icon: 'error',
-            title: 'Registration Failed',
-            text: error.response.data.message
-          });
-        }
-      };
+      navigate("/login");
+    } catch (error) {
+      console.log(error, "<---");
+      Swal.fire({
+        icon: "error",
+        title: "Registration Failed",
+        text: error.response.data.message,
+        confirmButtonColor: "#198754",
+      });
+    }
+  };
   return (
     <>
-      <meta charSet="utf-8" />
-      <meta name="author" content="Hacktip Games" />
-      <meta name="viewport" content="width=device-width,initial-scale=1" />
+      <Navbar />
+
       <section className="h-100">
         <div className="container h-100">
           <div className="row justify-content-sm-center h-100">
             <div className="col-xxl-4 col-xl-5 col-lg-5 col-md-7 col-sm-9">
               <div className="text-center my-5">
-                <img
-                  src="../../public/haktipgems.svg"
-                  alt="logo"
-                  width={125}
-                />
+                <img src="../../public/haktipgems.svg" alt="logo" width={125} />
               </div>
               <div className="card shadow-lg">
                 <div className="card-body p-5">
@@ -81,7 +79,9 @@ export default function Register() {
                         autoFocus=""
                         onChange={changeHandler}
                       />
-                      <div className="invalid-feedback">Username is required</div>
+                      <div className="invalid-feedback">
+                        Username is required
+                      </div>
                     </div>
                     <div className="mb-3">
                       <label className="mb-2 text-muted" htmlFor="password">
