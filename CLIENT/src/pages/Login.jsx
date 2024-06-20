@@ -56,7 +56,7 @@ export default function Login() {
           <div className="row justify-content-sm-center h-100">
             <div className="col-xxl-4 col-xl-5 col-lg-5 col-md-7 col-sm-9">
               <div className="text-center my-5">
-                <img src="../../public/haktipgems.svg" alt="logo" width={125} />
+                <img src="/haktipgems.svg" alt="logo" width={125} />
               </div>
               <div className="card shadow-lg">
                 <div className="card-body p-5">
@@ -114,7 +114,7 @@ export default function Login() {
                           Remember Me
                         </label>
                       </div>
-                      <button type="submit" className="btn btn-primary ms-auto">
+                      <button type="submit" className="btn btn-success ms-auto">
                         Login
                       </button>
                     </div>
@@ -123,14 +123,11 @@ export default function Login() {
                 <div className="card-footer py-3 border-0">
                   <div className="text-center">
                     Don't have an account?{" "}
-                    <Link to="/register" className="text-blue">
+                    <Link to="/register" className="text-success">
                       Create One
                     </Link>
                   </div>
                 </div>
-              </div>
-              <div className="text-center mt-5 text-muted">
-                Copyright © 2017-2024 — Hacktip Games
               </div>
             </div>
           </div>

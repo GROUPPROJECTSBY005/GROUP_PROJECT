@@ -4,10 +4,8 @@ import Home from "./pages/Home";
 import Game from "./pages/Game";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
-import Navbar from "./components/Navbar";
 import Canvas from "./pages/CanvasGame";
 import EnterGame from "./pages/Entergame";
-import TestAirHockey from "./pages/TestAirHockey";
 import DrawingGame from "./pages/DarwingGame";
 import TugOfWar from "./pages/TugOfWar";
 const checkAccess = () => {
@@ -49,50 +47,30 @@ const router = createBrowserRouter([
 
   // authentication
   {
-    path: "/game",
-    element: <Game />,
-    loader: checkAccess,
-  },
-  {
-    path: "/testairhockey",
-    element: <TestAirHockey />,
-    loader: checkAccess,
-  },
-  {
     path: "/drawinggame",
     element: <DrawingGame />,
     loader: checkAccess,
   },
   {
+    path: "/tugofwar",
+    element: <TugOfWar />,
+    loader: checkAccess,
+  },
+  {
+    path: "/game",
+    element: <Game />,
+    loader: checkAccess,
+  },
+  {
     path: "/canvas",
-    element: (
-      <>
-        <Navbar />
-        <Canvas />
-      </>
-    ),
+    element: <Canvas />,
     loader: checkAccess,
   },
   {
     path: "/entergame",
-    element: (
-      <>
-        <Navbar />
-        <EnterGame />
-      </>
-    ),
+    element: <EnterGame />,
     loader: checkAccess,
-  },
-  {
-    path: "/tugofwar",
-    element: (
-      <>
-        <Navbar />
-        <TugOfWar />
-      </>
-    ),
-    loader: checkAccess,
-  },
+  }
 ]);
 
 export default router;

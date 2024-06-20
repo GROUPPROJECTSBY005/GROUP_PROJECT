@@ -34,7 +34,7 @@ const TugOfWar = () => {
                 <div className="card-header text-center pt-3">
                   <h4>Online Players</h4>
                 </div>
-                <div className="alert alert-warning m-3 shadow text-center border-5">
+                <div className="alert alert-warning m-3 shadow text-center border-5 waiting">
                   All online Players!
                 </div>
                 <div className="card-body list-player">
