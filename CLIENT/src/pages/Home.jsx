@@ -38,24 +38,26 @@ export default function Home() {
             </div>
           </div>
           <div className="col">
-            <div className="card border-secondary-subtle border-3 rounded-5 coming-soon">
+            <div className="card border-success border-3 rounded-5 ">
               <div className="image-container">
                 <img
-                  src="/pool.webp"
-                  className="card-img-top rounded-5"
+                  src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2473980/header.jpg"
+                  className="card-img-top border-1 rounded-5"
                   alt="Hollywood Sign on The Hill"
                 />
               </div>
               <div className="card-body">
                 <h5 className="card-title">2D Pool</h5>
                 <p className="card-text">
-                  Enter the virtual pool hall for exciting 8-ball and 9-ball
-                  games! Face off against global players with realistic graphics
-                  and intuitive controls. Will you sink the winning shot?
+                The online collaborative drawing game allows multiple players to create artwork together in real-time.
+                 Players can join a virtual canvas, draw simultaneously, and see each other's contributions instantly.
+                  
                 </p>
-                <button className="btn border-dark-subtle border-3 disabled btn-lg container-fluid rounded-5">
+                <Link to='/DrawingGame' >
+                <button className="btn btn-success border-3  btn-lg container-fluid rounded-5">
                   Coming Soon
                 </button>
+                </Link>
               </div>
             </div>
           </div>

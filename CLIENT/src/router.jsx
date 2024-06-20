@@ -5,8 +5,10 @@ import Game from "./pages/Game";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Navbar from "./components/Navbar";
+import Canvas from "./pages/CanvasGame";
+import EnterGame from "./pages/Entergame";
 import TestAirHockey from "./pages/TestAirHockey";
-
+import DrawingGame from "./pages/DarwingGame";
 const checkAccess = () => {
   if (!localStorage.access_token) {
     Swal.fire({
@@ -53,6 +55,31 @@ const router = createBrowserRouter([
   {
     path: "/testairhockey",
     element: <TestAirHockey />,
+    loader: checkAccess,
+  },
+  {
+    path: "/drawinggame",
+    element: <DrawingGame />,
+    loader: checkAccess,
+  },
+  {
+    path: "/canvas",
+    element: (
+      <>
+        <Navbar />
+        <Canvas />
+      </>
+    ),
+    loader: checkAccess,
+  },
+  {
+    path: "/entergame",
+    element: (
+      <>
+        <Navbar />
+        <EnterGame />
+      </>
+    ),
     loader: checkAccess,
   },
 ]);
