@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
+import Navbar from "../components/Navbar";
 
 export default function Home() {
   return (
     <>
+    <Navbar/>
+
       <div className="container mt-5">
         <h1 className="text-center my-4">Games</h1>
         <hr className="mb-4" />
@@ -15,7 +18,7 @@ export default function Home() {
                   className="card-img-top rounded-5"
                   alt="Hollywood Sign on The Hill"
                 />
-                <span class="badge text-bg-warning p-3 rounded-5 fs-6">
+                <span className="badge text-bg-warning p-3 rounded-5 fs-6">
                   Multiplayer
                 </span>
               </div>

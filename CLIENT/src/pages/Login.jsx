@@ -3,61 +3,59 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "../../src/axiosInstance/axiosInstance";
 import Swal from "sweetalert2";
+import Navbar from "../components/Navbar";
+import { AuthContext } from "../contexts/AuthContext";
+import { useContext } from "react";
 
 export default function Login() {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
+  const { login } = useContext(AuthContext);
 
   const [loginForm, setLoginForm] = useState({
     username: "",
     password: "",
-  })
+  });
 
   const changeHandler = (el) => {
     const { name, value } = el.target;
     setLoginForm({
-      ...loginForm, 
+      ...loginForm,
       [name]: value,
     });
   };
 
   const submitHandler = async (el) => {
-    el.preventDefault(); 
+    el.preventDefault();
 
     try {
-      const { data } = await axios.post("/login", loginForm); 
-      localStorage.access_token = data.access_token;
-      localStorage.username = loginForm.username
+      const { data } = await axios.post("/login", loginForm);
+      login(data.access_token);
       Swal.fire({
-        icon: 'success',
-        title: 'Success Login',
+        icon: "success",
+        title: "Success Login",
+        confirmButtonColor: "#198754",
       });
 
-      navigate("/"); 
+      navigate("/");
     } catch (error) {
       console.log(error);
       Swal.fire({
-        icon: 'error',
-        title: 'Login Failed',
-        text: error.response.data.message
+        icon: "error",
+        title: "Login Failed",
+        text: error.response.data.message,
+        confirmButtonColor: "#198754",
       });
     }
   };
   return (
     <>
-      <meta charSet="utf-8" />
-      <meta name="author" content="Hacktip Games" />
-      <meta name="viewport" content="width=device-width,initial-scale=1" />
-      <title>Bootstrap 5 Login Page</title>
+      <Navbar />
       <section className="h-100">
         <div className="container h-100">
           <div className="row justify-content-sm-center h-100">
             <div className="col-xxl-4 col-xl-5 col-lg-5 col-md-7 col-sm-9">
               <div className="text-center my-5">
-                <img
-                  src="../../public/haktipgems.svg"
-                  alt="logo"
-                  width={125}
-                />
+                <img src="../../public/haktipgems.svg" alt="logo" width={125} />
               </div>
               <div className="card shadow-lg">
                 <div className="card-body p-5">
@@ -75,15 +73,15 @@ export default function Login() {
                       </label>
                       <input
                         id="username"
-                        type="username"
+                        type="text"
                         className="form-control"
                         name="username"
-                        defaultValue=""
-                        required=""
-                        autofocus=""
+                        required
                         onChange={changeHandler}
                       />
-                      <div className="invalid-feedback">Username is invalid</div>
+                      <div className="invalid-feedback">
+                        Username is invalid
+                      </div>
                     </div>
                     <div className="mb-3">
                       <div className="mb-2 w-100">
@@ -96,7 +94,7 @@ export default function Login() {
                         type="password"
                         className="form-control"
                         name="password"
-                        required=""
+                        required
                         onChange={changeHandler}
                       />
                       <div className="invalid-feedback">

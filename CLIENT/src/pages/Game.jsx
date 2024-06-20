@@ -1,3 +1,4 @@
+import Navbar from "../components/Navbar";
 import socket from "../socketio/socket";
 import { useEffect, useState } from "react";
 
@@ -47,6 +48,7 @@ useEffect(()=>{
 
   return (
     <>
+    <Navbar/>
       <div className="lobby">
         <div className="game-background"></div>
         <h1 className="text-center mt-5">Hockey</h1>
