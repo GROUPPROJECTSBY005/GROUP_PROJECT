@@ -13,31 +13,32 @@ export default function Navbar() {
         icon: "success",
         title: "Success",
         text: "Kamu telah berhasil logout",
+        confirmButtonColor: "#198754"
       });
     navigate("/");
   };
 
   return (
     <>
-      <nav class="navbar navbar-light bg-body-tertiary shadow p-3">
-        <div class="container-fluid">
+      <nav className="navbar navbar-dark bg-success shadow p-3">
+        <div className="container-fluid">
           <Link to={"/"}>
-            <span class="navbar-brand mb-0 h1">Hacktip</span>
+            <span className="navbar-brand mb-0 h1 fs-3">Hacktip Games</span>
           </Link>
           <div className="d-flex gap-2">
             {isAuthenticated ? (
               <>
-                <button className="btn btn-outline-dark" onClick={handleLogout}>
+                <button className="btn btn-outline-light" onClick={handleLogout}>
                   Logout
                 </button>
               </>
             ) : (
               <>
                 <Link to={"/register"}>
-                  <button className="btn btn-outline-dark">Register</button>
+                  <button className="btn btn-outline-light">Register</button>
                 </Link>
                 <Link to={"/login"}>
-                  <button className="btn btn-outline-dark">Login</button>
+                  <button className="btn btn-outline-light">Login</button>
                 </Link>
               </>
             )}
