@@ -2,12 +2,17 @@ export default function Game() {
   const players = [
     "Player1",
     "Player2",
-    "Player3",
-    "Player4",
-    "Player5",
-    "Player6",
-    "Player7",
-    "Player8",
+    "Player1",
+    "Player2",
+    "Player1",
+    "Player2",
+    "Player1",
+    "Player2",
+    "Player1",
+    "Player2",
+    "Player1",
+    "Player2",
+
   ];
   return (
     <>
@@ -15,7 +20,7 @@ export default function Game() {
         <div className="game-background"></div>
         <h1 className="text-center mt-5">Hockey</h1>
         <div className="container-fluid mt-5 d-flex align-items-center justify-content-center">
-          <div className="row w-75">
+          <div className="row w-75 height-lobby">
             <div className="col-md-4">
               <div className="card text-bg-success shadow">
                 <div className="card-header text-center pt-3">
@@ -24,7 +29,7 @@ export default function Game() {
                 <div className="alert alert-warning m-3 shadow text-center border-5">
                 Select and invite players to play!
                 </div>
-                <div className="card-body">
+                <div className="card-body list-player">
                   <div className="d-grid gap-2">
                     {players.map((player, index) => (
                       <button className="btn btn-light shadow" key={index}>
