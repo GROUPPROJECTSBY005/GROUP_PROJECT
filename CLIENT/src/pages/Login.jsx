@@ -26,8 +26,7 @@ export default function Login() {
     try {
       const { data } = await axios.post("/login", loginForm); 
       localStorage.access_token = data.access_token;
-      localStorage.username = username;
-
+      localStorage.username = loginForm.username
       Swal.fire({
         icon: 'success',
         title: 'Success Login',
