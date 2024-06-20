@@ -47,7 +47,7 @@ export default function Home() {
                 />
               </div>
               <div className="card-body">
-                <h5 className="card-title">2D Pool</h5>
+                <h5 className="card-title">Drawing Together</h5>
                 <p className="card-text">
                 The online collaborative drawing game allows multiple players to create artwork together in real-time.
                  Players can join a virtual canvas, draw simultaneously, and see each other's contributions instantly.
@@ -55,7 +55,7 @@ export default function Home() {
                 </p>
                 <Link to='/DrawingGame' >
                 <button className="btn btn-success border-3  btn-lg container-fluid rounded-5">
-                  Coming Soon
+                  Play now!
                 </button>
                 </Link>
               </div>
@@ -85,24 +85,24 @@ export default function Home() {
             </div>
           </div>
           <div className="col">
-            <div className="card border-secondary-subtle border-3 rounded-5 coming-soon">
+            <div className="card border-success border-3 rounded-5 fs-6">
               <div className="image-container">
                 <img
-                  src="/ping.png"
+                  src="https://play-lh.googleusercontent.com/v3gJCeTEQsbjKm30dmb7sVMxxDsnSTVJN56FLQ6Tn70dCO4phn8RqkkrSCSnynytHzc"
                   className="card-img-top rounded-5"
                   alt="Hollywood Sign on The Hill"
                 />
               </div>
               <div className="card-body">
-                <h5 className="card-title">Ping Pong</h5>
+                <h5 className="card-title">Tug Of War</h5>
                 <p className="card-text">
-                  Step into the virtual arena for intense Ping Pong battles!
-                  Play against friends or global rivals with lifelike physics
-                  and responsive controls. Can you master the table?
+                The online Tug of War game brings a classic playground contest into the digital age, allowing players to compete from the comfort of their own homes. In this multiplayer game. 
                 </p>
-                <button className="btn border-dark-subtle border-3 disabled btn-lg container-fluid rounded-5">
-                  Coming Soon
+                <Link to='/tugofwar' >
+                <button className="btn btn-success border-3  btn-lg container-fluid rounded-5">
+                  play now!
                 </button>
+                </Link>
               </div>
             </div>
           </div>
