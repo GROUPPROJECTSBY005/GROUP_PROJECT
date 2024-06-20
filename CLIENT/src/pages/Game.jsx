@@ -21,7 +21,7 @@ export default function Game() {
                 <div className="card-header text-center pt-3">
                   <h4>Online Players</h4>
                 </div>
-                <div className="alert alert-warning m-3 shadow text-center">
+                <div className="alert alert-warning m-3 shadow text-center border-5">
                 Select and invite players to play!
                 </div>
                 <div className="card-body">
@@ -40,10 +40,14 @@ export default function Game() {
                 <div className="card-header text-bg-success text-center pt-3">
                   <h5>Lobby</h5>
                 </div>
-                <div className="card-body d-flex align-items-center justify-content-center">
-                  <div className="alert alert-warning shadow" role="alert">
+                <div className="card-body d-flex flex-column align-items-center justify-content-center">
+                  <div className="alert alert-warning shadow waiting mb-4 border-5" role="alert">
                     Waiting for invitations <br />
                     from other players<span className="animated-ellipsis"></span>
+                  </div>
+                  <span className="text-warning-emphasis">or</span>
+                  <div className="alert alert-warning shadow border-5 waiting mt-4" role="alert">
+                   Create Room
                   </div>
                 </div>
               </div>

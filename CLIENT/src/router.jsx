@@ -5,6 +5,7 @@ import Game from "./pages/Game";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Navbar from "./components/Navbar";
+import TestAirHockey from "./pages/TestAirHockey";
 
 const checkAccess = () => {
   if (!localStorage.access_token) {
@@ -65,6 +66,16 @@ const router = createBrowserRouter([
       <>
         <Navbar />
         <Game />
+      </>
+    ),
+    loader: checkAccess,
+  },
+  {
+    path: "/testairhockey",
+    element: (
+      <>
+        <Navbar />
+        <TestAirHockey />
       </>
     ),
     loader: checkAccess,

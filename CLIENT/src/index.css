@@ -77,12 +77,12 @@ a {
   transform: scale(0.98);
 }
 
-.lobby .btn {
+.lobby .waiting, .lobby .btn {
   transition: transform 0.3s ease;
 }
 
-.lobby .btn:hover {
-  transform: scale(1.05);
+.lobby .waiting:hover, .lobby .btn:hover {
+  transform: scale(1.03);
 }
 
 .coming-soon {
