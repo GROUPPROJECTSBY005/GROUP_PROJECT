@@ -8,6 +8,8 @@ import Canvas from "./pages/CanvasGame";
 import EnterGame from "./pages/Entergame";
 import DrawingGame from "./pages/DarwingGame";
 import TugOfWar from "./pages/TugOfWar";
+import KosonganGame from "./components/KosonganGame";
+import Kosongan from "./pages/Kosongan";
 const checkAccess = () => {
   if (!localStorage.access_token) {
     Swal.fire({
@@ -54,6 +56,11 @@ const router = createBrowserRouter([
   {
     path: "/tugofwar",
     element: <TugOfWar />,
+    loader: checkAccess,
+  },
+  {
+    path: "/kosongan",
+    element: <Kosongan />,
     loader: checkAccess,
   },
   {

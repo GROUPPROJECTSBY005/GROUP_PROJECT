@@ -32,7 +32,7 @@ const DrawingGame = () => {
             isDarkMode ? "dark-mode" : "light-mode"
           }`}
         ></div>
-        <h1 className="text-center mt-5">Drawing Together</h1>
+        <h1 className={`text-center mt-5 ${isDarkMode ? 'text-light' : 'text-dark'}`}>Drawing Together</h1>
         <div className="container-fluid mt-5 d-flex align-items-center justify-content-center">
           <div className="row w-75 height-lobby">
             <div className="col-md-4">

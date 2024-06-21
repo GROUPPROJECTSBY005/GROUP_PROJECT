@@ -6,8 +6,10 @@ import Swal from "sweetalert2";
 import Navbar from "../components/Navbar";
 import { AuthContext } from "../contexts/AuthContext";
 import { useContext } from "react";
+import { ThemeContext } from "../contexts/ThemeContext";
 
 export default function Login() {
+  const { isDarkMode } = useContext(ThemeContext);
   const navigate = useNavigate();
   const { login } = useContext(AuthContext);
 
@@ -114,7 +116,7 @@ export default function Login() {
                           Remember Me
                         </label>
                       </div>
-                      <button type="submit" className="btn btn-success ms-auto">
+                      <button type="submit" className={`btn ms-auto ${isDarkMode ? 'btn-dark' : 'btn-success'}`}>
                         Login
                       </button>
                     </div>
@@ -123,7 +125,7 @@ export default function Login() {
                 <div className="card-footer py-3 border-0">
                   <div className="text-center">
                     Don't have an account?{" "}
-                    <Link to="/register" className="text-success">
+                    <Link to="/register" className={isDarkMode ? "text-dark" : "text-success"}>
                       Create One
                     </Link>
                   </div>

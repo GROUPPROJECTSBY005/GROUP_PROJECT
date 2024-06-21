@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "../../src/axiosInstance/axiosInstance";
 import Swal from "sweetalert2";
 import Navbar from "../components/Navbar";
+import { ThemeContext } from "../contexts/ThemeContext";
 
 export default function Register() {
+  const { isDarkMode } = useContext(ThemeContext);
   const [registerForm, setRegisterForm] = useState({
     username: "",
     password: "",
@@ -89,7 +91,7 @@ export default function Register() {
                     By registering you agree with our terms and condition.
                   </p>
                   <div className="align-items-center d-flex">
-                    <button type="submit" className="btn btn-success ms-auto">
+                    <button type="submit" className={`btn ms-auto ${isDarkMode ? 'btn-dark' : 'btn-success'}`}>
                       Register
                     </button>
                   </div>
@@ -98,7 +100,7 @@ export default function Register() {
               <div className="card-footer py-3 border-0">
                 <div className="text-center">
                   Already have an account?{" "}
-                  <Link to="/login" className="text-success">
+                  <Link to="/login" className={isDarkMode ? "text-dark" : "text-success"}>
                     Login
                   </Link>
                 </div>

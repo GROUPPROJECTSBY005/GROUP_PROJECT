@@ -98,6 +98,40 @@ export default function Home() {
             </div>
           </div>
           <div className="col">
+            <div
+              className={`card border-3 rounded-5 ${
+                isDarkMode
+                  ? "bg-dark text-light border-dark"
+                  : "bg-light text-dark border-success"
+              }`}
+            >
+              <div className="image-container">
+                <img
+                  src="https://via.placeholder.com/300"
+                  className="card-img-top rounded-5"
+                  alt="Hollywood Sign on The Hill"
+                />
+              </div>
+              <div className="card-body">
+                <h5 className="card-title">Kosongan</h5>
+                <p className="card-text">
+                  The online Tug of War game brings a classic playground contest
+                  into the digital age, allowing players to compete from the
+                  comfort of their own homes. In this multiplayer game.
+                </p>
+                <Link to="/kosongan">
+                  <button
+                    className={`btn ${
+                      isDarkMode ? "btn-outline-light" : "btn-success"
+                    } border-3 btn-lg container-fluid rounded-5`}
+                  >
+                    Play now!
+                  </button>
+                </Link>
+              </div>
+            </div>
+          </div>
+          <div className="col">
           <div
               className={`card border-3 rounded-5 coming-soon shadow ${
                 isDarkMode ? "bg-dark text-light boder-dark" : "bg-light text-dark border-secondary-subtle"
