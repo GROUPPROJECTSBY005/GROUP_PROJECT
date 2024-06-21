@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import socket from "../socketio/socket";
 import DrawingCanvas from "../components/CanvasDrawing";
+import { ThemeContext } from "../contexts/ThemeContext";
 
 const DrawingGame = () => {
+  const { isDarkMode } = useContext(ThemeContext);
   const [players, setPlayers] = useState([]);
 
   useEffect(() => {
@@ -12,12 +14,12 @@ const DrawingGame = () => {
   }, []);
 
   useEffect(() => {
-    socket.on('users:online', (user) => {
+    socket.on("users:online", (user) => {
       setPlayers(user);
     });
 
     return () => {
-      socket.off('users:online');
+      socket.off("users:online");
     };
   }, []);
 
@@ -25,12 +27,16 @@ const DrawingGame = () => {
     <>
       <Navbar />
       <div className="lobby">
-        <div className="game-background"></div>
+        <div
+          className={`game-background ${
+            isDarkMode ? "dark-mode" : "light-mode"
+          }`}
+        ></div>
         <h1 className="text-center mt-5">Drawing Together</h1>
         <div className="container-fluid mt-5 d-flex align-items-center justify-content-center">
           <div className="row w-75 height-lobby">
             <div className="col-md-4">
-              <div className="card text-bg-success shadow">
+            <div className={`card ${isDarkMode ? "text-bg-dark" : "text-bg-success"} shadow`}>
                 <div className="card-header text-center pt-3">
                   <h4>Online Players</h4>
                 </div>
@@ -49,8 +55,9 @@ const DrawingGame = () => {
               </div>
             </div>
             <div className="col-md-8">
-              <div className="card h-100 border-success shadow">
-                <div className="card-header text-bg-success text-center pt-3">
+            <div className={`card h-100 ${isDarkMode ? "border-dark" : "border-success"}  shadow`}>
+                <div className={`card-header ${isDarkMode ? "text-bg-dark" : "text-bg-success"} text-center pt-3`}>
+            
                   <h5>Lobby</h5>
                 </div>
                 <div className="card-body d-flex flex-column align-items-center justify-content-center">

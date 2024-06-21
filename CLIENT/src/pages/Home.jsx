@@ -1,17 +1,35 @@
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
+import { useContext } from "react";
+import { ThemeContext } from "../contexts/ThemeContext";
 
 export default function Home() {
+  const { isDarkMode } = useContext(ThemeContext);
+
   return (
     <>
       <Navbar />
-
+      <div
+        className={`game-background ${isDarkMode ? "dark-mode" : "light-mode"}`}
+      ></div>
       <div className="container mt-5">
-        <h1 className="text-center my-4">Games Portal</h1>
+        <h1
+          className={`text-center my-4 ${
+            isDarkMode ? "text-light" : "text-dark"
+          }`}
+        >
+          Games Portal
+        </h1>
         <hr className="mb-4" />
         <div className="row row-cols-1 row-cols-md-3 g-4">
           <div className="col">
-            <div className="card border-success border-3 rounded-5 ">
+            <div
+              className={`card border-3 rounded-5 ${
+                isDarkMode
+                  ? "bg-dark text-light border-dark"
+                  : "bg-light text-dark border-success"
+              }`}
+            >
               <div className="image-container">
                 <img
                   src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2473980/header.jpg"
@@ -31,7 +49,11 @@ export default function Home() {
                   contributions instantly.
                 </p>
                 <Link to="/DrawingGame">
-                  <button className="btn btn-success border-3  btn-lg container-fluid rounded-5">
+                  <button
+                    className={`btn ${
+                      isDarkMode ? "btn-outline-light" : "btn-success"
+                    } border-3 btn-lg container-fluid rounded-5`}
+                  >
                     Play now!
                   </button>
                 </Link>
@@ -39,7 +61,13 @@ export default function Home() {
             </div>
           </div>
           <div className="col">
-            <div className="card border-success border-3 rounded-5 fs-6">
+            <div
+              className={`card border-3 rounded-5 ${
+                isDarkMode
+                  ? "bg-dark text-light border-dark"
+                  : "bg-light text-dark border-success"
+              }`}
+            >
               <div className="image-container">
                 <img
                   src="https://play-lh.googleusercontent.com/v3gJCeTEQsbjKm30dmb7sVMxxDsnSTVJN56FLQ6Tn70dCO4phn8RqkkrSCSnynytHzc"
@@ -58,7 +86,11 @@ export default function Home() {
                   comfort of their own homes. In this multiplayer game.
                 </p>
                 <Link to="/tugofwar">
-                  <button className="btn btn-success border-3  btn-lg container-fluid rounded-5">
+                  <button
+                    className={`btn ${
+                      isDarkMode ? "btn-outline-light" : "btn-success"
+                    } border-3 btn-lg container-fluid rounded-5`}
+                  >
                     Play now!
                   </button>
                 </Link>
@@ -66,7 +98,11 @@ export default function Home() {
             </div>
           </div>
           <div className="col">
-            <div className="card border-secondary-subtle border-3 rounded-5 coming-soon">
+          <div
+              className={`card border-3 rounded-5 coming-soon shadow ${
+                isDarkMode ? "bg-dark text-light boder-dark" : "bg-light text-dark border-secondary-subtle"
+              }`}
+            >
               <div className="image-container">
                 <img
                   src="/airhockey.jpeg"
@@ -91,7 +127,11 @@ export default function Home() {
             </div>
           </div>
           <div className="col">
-            <div className="card border-secondary-subtle border-3 rounded-5 coming-soon">
+            <div
+              className={`card border-3 rounded-5 coming-soon shadow ${
+                isDarkMode ? "bg-dark text-light boder-dark" : "bg-light text-dark border-secondary-subtle"
+              }`}
+            >
               <div className="image-container">
                 <img
                   src="/tictactoe1.png"
@@ -117,7 +157,11 @@ export default function Home() {
             </div>
           </div>
           <div className="col">
-            <div className="card border-secondary-subtle border-3 rounded-5 coming-soon">
+          <div
+              className={`card border-3 rounded-5 coming-soon shadow ${
+                isDarkMode ? "bg-dark text-light boder-dark" : "bg-light text-dark border-secondary-subtle"
+              }`}
+            >
               <div className="image-container">
                 <img
                   src="/darts.jpg"
