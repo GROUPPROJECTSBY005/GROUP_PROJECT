@@ -220,7 +220,7 @@ const DotGameComponents = () => {
 
       highscoreText.Draw();
 
-      gameSpeed += 0.003;
+      gameSpeed += 0.103;
     }
 
     function resizeCanvas() {
