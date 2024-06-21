@@ -68,6 +68,37 @@ io.on("connection", (socket) => {
     });
     io.emit('users:online', user);
   }
+
+
+  //movegame mulai dari siniii
+  // socket.on('join', (room) => {
+  //   socket.join(room);
+  //   console.log(`User joined room: ${room}`);
+  // });
+
+  // socket.on('move', (data) => {
+  //   const { room, position } = data;
+  //   io.to(room).emit('move', position); // Emit move event to all clients in the room
+  // });
+  // untuk game titik
+  users[socket.id] = { x: 600, y: 600 };
+
+  socket.emit('currentUsers', users);
+
+  socket.broadcast.emit('newUser', { id: socket.id, pos: users[socket.id] });
+
+  socket.on('move', (data) => {
+    if (users[socket.id]) {
+      users[socket.id] = data;
+      socket.broadcast.emit('userMoved', { id: socket.id, pos: data });
+    }
+  });
+
+  socket.on('disconnectdot', () => {
+    console.log(`User disconnected: ${socket.id}`);
+    delete users[socket.id];
+    socket.broadcast.emit('userDisconnecteddot', socket.id);
+  });
 });
 
 app.use(router);

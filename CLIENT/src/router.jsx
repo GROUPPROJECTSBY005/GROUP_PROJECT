@@ -10,6 +10,10 @@ import EnterGame from "./pages/Entergame";
 import TestAirHockey from "./pages/TestAirHockey";
 import DrawingGame from "./pages/DarwingGame";
 import TugOfWar from "./pages/TugOfWar";
+import MoveGame from "./pages/Movegame";
+import DotGame from "./components/DotGame";
+import AppDot from "./pages/DotGame";
+import Dragon from "./pages/Dragon";
 const checkAccess = () => {
   if (!localStorage.access_token) {
     Swal.fire({
@@ -89,6 +93,36 @@ const router = createBrowserRouter([
       <>
         <Navbar />
         <TugOfWar />
+      </>
+    ),
+    loader: checkAccess,
+  },
+  {
+    path: "/movegame",
+    element: (
+      <>
+        <Navbar />
+        <MoveGame />
+      </>
+    ),
+    loader: checkAccess,
+  },
+  {
+    path: "/dotgame",
+    element: (
+      <>
+        <Navbar />
+        <AppDot />
+      </>
+    ),
+    loader: checkAccess,
+  },
+  {
+    path: "/gamedot",
+    element: (
+      <>
+        <Navbar />
+        <Dragon />
       </>
     ),
     loader: checkAccess,

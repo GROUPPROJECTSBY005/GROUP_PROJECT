@@ -1,7 +1,9 @@
 import React, { useRef, useEffect, useState } from 'react';
 import io from 'socket.io-client';
+import socket from '../socketio/socket';
 
-const socket = io('http://localhost:3000');
+// const socket = io('http://localhost:3000');
+
 
 const DrawingCanvas = () => {
   const canvasRef = useRef(null);
