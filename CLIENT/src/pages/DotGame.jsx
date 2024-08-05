@@ -42,7 +42,7 @@ const Dotgame = () => {
                   isDarkMode ? "border-dark" : "border-success"
                 }  shadow`}
               >
-                <div className="card-body d-flex flex-column align-items-center justify-content-center">
+                <div className="card-body custom-card d-flex flex-column align-items-center justify-content-center">
                     <DotGameComponents />
                 </div>
               </div>

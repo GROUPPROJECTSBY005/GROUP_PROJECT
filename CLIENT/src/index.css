@@ -183,11 +183,6 @@ a {
 
 /* untuk dot game */
 
-.lobby .height-lobby {
-  height: 80vh; /* Adjust as necessary */
-}
-
-.lobby .dot-game {
-  width: 100%;
-  height: 100%;
+.custom-card {
+  max-height: 60vh;
 }

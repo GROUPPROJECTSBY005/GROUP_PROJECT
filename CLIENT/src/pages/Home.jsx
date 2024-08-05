@@ -12,7 +12,7 @@ export default function Home() {
       <div
         className={`game-background ${isDarkMode ? "dark-mode" : "light-mode"}`}
       ></div>
-      <div className="container mt-5">
+      <div className="container my-5">
         <h1
           className={`text-center my-4 ${
             isDarkMode ? "text-light" : "text-dark"
@@ -115,7 +115,7 @@ export default function Home() {
               <div className="card-body">
                 <h5 className="card-title">Dot Game</h5>
                 <p className="card-text">
-                This Easter Egg is usually hidden on the No Internet connection error page in Google's Chrome web browser and played offline. Here, however, you can play the hacked Dino T-Rex Runner Game online and compete with other players.
+                This Easter Egg is usually hidden on the No Internet connection error page in Google's Chrome web browser and played offline. Here, however, you can play the hacked Dino T-Rex Runner Game online.
                 </p>
                 <Link to="/dotgame">
                   <button
@@ -129,7 +129,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="col">
+          {/* <div className="col">
             <div
               className={`card border-3 rounded-5 ${
                 isDarkMode
@@ -162,7 +162,7 @@ export default function Home() {
                 </Link>
               </div>
             </div>
-          </div>
+          </div> */}
           <div className="col">
           <div
               className={`card border-3 rounded-5 coming-soon shadow ${
